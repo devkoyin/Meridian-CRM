@@ -493,7 +493,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-i
       <!-- DASHBOARD -->
       <div class="view active" id="view-dashboard">
         <div class="page-header fade-in">
-          <div><div class="page-greeting">Welcome back, Ali 👋</div><div class="page-subtitle">Here's what's happening with your pipeline today.</div></div>
+          <div><div class="page-greeting" id="dashboard-greeting">Welcome 👋</div><div class="page-subtitle">Here's what's happening with your pipeline today.</div></div>
           <button class="table-btn primary" onclick="openModal('lead')"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Lead</button>
         </div>
         <div class="stats-grid">
@@ -1073,10 +1073,11 @@ function applyUserToUI(displayName,firstName,email){
   document.getElementById('header-profile-email').textContent=email;
   document.getElementById('settings-full-name').value=displayName;
   document.getElementById('settings-email').value=email;
+  document.getElementById('dashboard-greeting').textContent='Welcome, '+firstName+' 👋';
   document.getElementById('login-page').style.display='none';
   document.getElementById('dashboard-page').style.display='block';
   renderMiniLeads();updateStats();renderNotifs();setTimeout(initCharts,100);
-  showToast('Welcome back, '+firstName+'! 👋','success');
+  showToast('Welcome, '+firstName+'! 👋','success');
 }
 function nameFromEmail(email){
   const local=email.split('@')[0];
